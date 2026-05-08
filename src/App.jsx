@@ -90,6 +90,8 @@ function App() {
         <>
             <section className="items">
                 <h4>Jersey Shop Made with React JS</h4>
+
+                TESTANDO 1, 2, 3
                 
                 <div className="product selected">
                     <div className="photo">
