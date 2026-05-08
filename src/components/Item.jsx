@@ -1,7 +1,9 @@
-const Item = ( {item} ) => {
+const Item = ( {item, selectProduct} ) => {
     return (
         <div
-            className={`product ${item.isInBag ? 'selected' : ''}`}>
+            className={`product ${item.isInBag ? 'selected' : ''}`}
+            onClick={ () => selectProduct(item.id) }    
+        >
             <div className="photo">
                 <img src={"./img/" + item.photo} />
             </div>

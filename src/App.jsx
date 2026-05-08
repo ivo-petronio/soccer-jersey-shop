@@ -99,6 +99,10 @@ function App() {
                 {
                     items.map(item => 
                         <Item
+                            /* NÃO DÁ PARA COLOCAR O ONCLICK FORA, TEM QUE SER DENTRO DO COMPONENTE.
+                                FAZEMOS ISSO PASSANDO UMA FUNÇÃO COMO PROP.
+                            onClick={ () => alert("Clicou") } */
+                            selectProduct={(id) => alert(`Produto Id=${id} selecionado.`)}
                             key={item.id}
                             item={item}
                         />
