@@ -49,6 +49,7 @@ section.items .product.selected {
 
 section.items .photo img {
   max-width: 140px;
+  max-height: 140px;
 }
 
 section.items .description {
