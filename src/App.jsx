@@ -21,7 +21,7 @@ function App() {
             price: 99.99,
             active: false,
             quantity: 1,
-            isInBag: true
+            isInBag: false
         },
         {
             id: 3,
@@ -84,9 +84,11 @@ function App() {
             price: 89.99,
             active: false,
             quantity: 1,
-            isInBag: false
+            isInBag: true
         }
     ];
+
+    const itemsInBag = items.filter( item => item.isInBag )
 
     return (
         <>
@@ -118,7 +120,9 @@ function App() {
                 }
             </section>
 
-            <Bag />
+            {
+                itemsInBag.length > 0 && <Bag />
+            }
 
         </>
     );
