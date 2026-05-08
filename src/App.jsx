@@ -91,7 +91,7 @@ function App() {
             <section className="items">
                 <h4>Jersey Shop Made with React JS</h4>
 
-                TESTANDO 1, 2, 3
+                BRANCH RENDER-WITH-MAP-FUNCTION
                 
                 <div className="product selected">
                     <div className="photo">
