@@ -109,7 +109,7 @@ function App() {
             {
                 item.quantity += operator
             }
-            if (item.quantity == 0) {
+            else {
                 item.isInBag = false
             }
 
@@ -138,7 +138,7 @@ function App() {
             </section>
 
             {
-                itemsInBag.length > 0 && <Bag />
+                itemsInBag.length > 0 && <Bag itemsInBag={itemsInBag} />
             }
 
         </>
