@@ -94,7 +94,10 @@ function App() {
 
     const selectProductHandler = id => {
         setItems(items.filter( item => {
-            if (item.id === id) item.isInBag = !item.isInBag
+            if (item.id === id) {
+                item.isInBag = !item.isInBag
+                item.quantity = 1
+            }
             return item
         }))
     }
@@ -102,7 +105,14 @@ function App() {
     const increaseQuantity = ( id, operator, event ) => {
         event.stopPropagation()
         setItems(items.filter( item => {
-            if (item.id === id ) item.quantity += operator
+            if (item.id === id && item.quantity > 0 )
+            {
+                item.quantity += operator
+            }
+            if (item.quantity == 0) {
+                item.isInBag = false
+            }
+
             return item
         }))
     }
