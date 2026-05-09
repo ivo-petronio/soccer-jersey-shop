@@ -1,4 +1,4 @@
-const Item = ( {item, selectProduct} ) => {
+const Item = ( {item, selectProduct, moreOneTshirt} ) => {
     return (
         <div
             className={`product ${item.isInBag ? 'selected' : ''}`}
@@ -13,9 +13,17 @@ const Item = ( {item, selectProduct} ) => {
 
                 {item.isInBag &&
                     <div className="quantity-area">
-                        <button>-</button>
+                        <button
+                            onClick={ event => moreOneTshirt(item.id, -1, event)}
+                        >
+                            -
+                        </button>
                         <span className="quantity">{item.quantity}</span>
-                        <button>+</button>
+                        <button
+                            onClick={ event => moreOneTshirt(item.id, 1, event) }
+                        >
+                            +
+                        </button>
                     </div>
                 }
             </div>

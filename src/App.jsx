@@ -99,6 +99,14 @@ function App() {
         }))
     }
 
+    const increaseQuantity = ( id, operator, event ) => {
+        event.stopPropagation()
+        setItems(items.filter( item => {
+            if (item.id === id ) item.quantity += operator
+            return item
+        }))
+    }
+
     return (
         <>
             <section className="items">
@@ -111,6 +119,7 @@ function App() {
                                 FAZEMOS ISSO PASSANDO UMA FUNÇÃO COMO PROP.
                             onClick={ () => alert("Clicou") } */
                             selectProduct={ id => selectProductHandler(id) }
+                            moreOneTshirt={ (id, operator, event) => increaseQuantity(id, operator, event) }
                             key={item.id}
                             item={item}
                         />
