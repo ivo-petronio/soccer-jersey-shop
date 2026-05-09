@@ -1,10 +1,11 @@
 import './App.css';
 import Bag from './components/Bag.jsx'
 import Item from './components/Item.jsx'
+import { useState } from 'react'
 
 function App() {
 
-    const items = [
+    const [items, setItems] = useState([
         {
 
             id: 1,
@@ -22,7 +23,7 @@ function App() {
             price: 99.99,
             active: false,
             quantity: 1,
-            isInBag: false
+            isInBag: true
         },
         {
             id: 3,
@@ -87,9 +88,16 @@ function App() {
             quantity: 1,
             isInBag: true
         }
-    ];
+    ])
 
     const itemsInBag = items.filter( item => item.isInBag )
+
+    const selectProductHandler = id => {
+        setItems(items.filter( item => {
+            if (item.id === id) item.isInBag = !item.isInBag
+            return item
+        }))
+    }
 
     return (
         <>
@@ -102,7 +110,7 @@ function App() {
                             /* NÃO DÁ PARA COLOCAR O ONCLICK FORA, TEM QUE SER DENTRO DO COMPONENTE.
                                 FAZEMOS ISSO PASSANDO UMA FUNÇÃO COMO PROP.
                             onClick={ () => alert("Clicou") } */
-                            selectProduct={(id) => alert(`Produto Id=${id} selecionado.`)}
+                            selectProduct={ id => selectProductHandler(id) }
                             key={item.id}
                             item={item}
                         />
